@@ -2,20 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&display=swap");
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
 }
 
 body {
   background-color: #001c30;
   font-family: "Raleway", sans-serif;
   overflow: hidden;
-
 }
 
 input:-webkit-autofill,
@@ -44,4 +42,13 @@ input:-webkit-autofill:active {
 .input:valid,
 .input:focus {
   border: 1px solid #64ccc5;
+}
+
+.selected {
+  border: 0.4rem solid #64ccc5;
+  transform: scale(1.2);
+}
+
+.loader {
+  max-inline-size: 100%;
 }
