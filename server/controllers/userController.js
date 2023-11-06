@@ -95,3 +95,24 @@ module.exports.login = async (req, res, next) => {
       res.status(500).json({ error: err.message });
     }
   };
+
+  module.exports.setAvatar = async (req, res, next) => {
+    try {
+      const { id } = req.params;
+      const { avatar } = req.body;
+  
+      const updatedUser = await User.findByIdAndUpdate(id, {
+        isAvatarImageSet: true,
+        avatarImage: avatar,
+      }, {new: true});
+      updatedUser.save()
+      console.log (updatedUser)
+     
+        res.status(200).json({
+          isSet: updatedUser.isAvatarImageSet,
+          image: updatedUser.avatarImage,
+        });
+    } catch (err) {
+      res.status(500).json({ error: err.message });
+    }
+  };
