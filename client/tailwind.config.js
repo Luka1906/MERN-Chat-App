@@ -1,7 +1,14 @@
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
+    screens: {
+      xs: "320px",
+      ...defaultTheme.screens,
+    },
+
     extend: {
       colors: {
         "primary-color-dark": "#176B87",
@@ -28,7 +35,6 @@ module.exports = {
         "contact-grid": "20% 57% 23%",
         "chat-grid": "10% 78% 12%",
         "chat-grid-tablet": "15% 70% 15%",
-     
       },
     },
   },

@@ -6,7 +6,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const userRoutes = require("./routes/userRoutes");
 const messageRoutes = require("./routes/messagesRoutes");
-
+const socket = require("socket.io");
 
 /* CONFIGURATIONS */
 
@@ -21,9 +21,6 @@ app.use(cors());
 app.use("/api/auth", userRoutes);
 app.use("/api/messages", messageRoutes);
 
-const port = process.env.PORT || 4000;
-
-
 // DATABASE
 
 mongoose
@@ -32,14 +29,35 @@ mongoose
     useUnifiedTopology: true,
   })
   .then(() => {
-    app.listen(port, () => console.log("Server is running"));
     console.log("DB Connection successfull");
   })
   .catch((err) => console.log(err));
 
+const port = process.env.PORT || 4000;
+const server = app.listen(port, () => console.log("Server is running"));
 
+const io = socket(server, {
+  cors: {
+    origin: "http://localhost:3000",
+    credentials: true,
+  },
+});
 
+global.onlineUsers = new Map();
 
+io.on("connection", (socket) => {
+  console.log("User is connected");
+  socket.on("add-user", (userId) => {
+    onlineUsers.set(userId, socket.id);
+  });
 
+  socket.on("send-msg", (data) => {
+    const sendUserSocket = onlineUsers.get(data.to);
 
+    if (sendUserSocket) {
+      socket.to(sendUserSocket).emit("msg-receive", data.msg);
+    }
+  });
+
+});
 
