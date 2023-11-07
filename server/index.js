@@ -5,6 +5,7 @@ const dotenv = require("dotenv");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const userRoutes = require("./routes/userRoutes");
+const messageRoutes = require("./routes/messagesRoutes");
 
 
 /* CONFIGURATIONS */
@@ -18,6 +19,7 @@ app.use(cors());
 /* ROUTES */
 
 app.use("/api/auth", userRoutes);
+app.use("/api/messages", messageRoutes);
 
 const port = process.env.PORT || 4000;
 

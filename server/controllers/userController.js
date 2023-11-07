@@ -116,3 +116,19 @@ module.exports.login = async (req, res, next) => {
       res.status(500).json({ error: err.message });
     }
   };
+
+  module.exports.getAllUsers = async (req, res, next) => {
+    try {
+      const users = await User.find({ _id: { $ne: req.params.id } }).select([
+        "email",
+        "username",
+        "avatarImage",
+        "id",
+      ]);
+  
+      res.status(200).json({ users });
+    } catch (err) {
+      res.status(500).json({ error: err.message });
+    }
+  };
+  
