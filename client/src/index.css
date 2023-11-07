@@ -15,6 +15,7 @@ body {
   font-family: "Raleway", sans-serif;
   overflow: hidden;
 }
+/* SIGN UP FORM */
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
@@ -44,6 +45,8 @@ input:-webkit-autofill:active {
   border: 1px solid #64ccc5;
 }
 
+/* AVATAR PAGE */
+
 .selected {
   border: 0.4rem solid #64ccc5;
   transform: scale(1.2);
@@ -52,3 +55,46 @@ input:-webkit-autofill:active {
 .loader {
   max-inline-size: 100%;
 }
+
+/* CONTACT LIST CHAT PAGE */
+
+:where(.contacts, .chat-messages)::-webkit-scrollbar {
+  width: 0.2rem;
+}
+
+:where(.contacts, .chat-messages)::-webkit-scrollbar-thumb {
+  background-color: #64ccc5;
+  width: 0.1rem;
+  border-radius: 1rem;
+}
+
+/* EMOJIS */
+.emoji aside.EmojiPickerReact.epr-main {
+  position: absolute;
+  top: -450px;
+  left: 16px;
+  transform: scale(80%);
+  background-color: #001c30;
+  box-shadow: 0px 5px 10px #64ccc5;
+  border-color: #64ccc5;
+}
+
+.EmojiPickerReact.epr-main .epr-search-container input.epr-search,
+.EmojiPickerReact.epr-main li.epr-emoji-category > .epr-emoji-category-label {
+  background-color: #001c30;
+  border-color: #64ccc5;
+}
+.EmojiPickerReact.epr-main .epr-search-container input.epr-search:focus {
+  background-color: transparent;
+  border-color: #64ccc5;
+}
+.epr-body::-webkit-scrollbar {
+  width: 5px;
+}
+.epr-body::-webkit-scrollbar-thumb {
+  background-color: #64ccc5;
+}
+.epr-category-nav button {
+  filter: contrast(0);
+}
+
