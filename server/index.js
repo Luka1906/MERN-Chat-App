@@ -24,10 +24,7 @@ app.use("/api/messages", messageRoutes);
 // DATABASE
 
 mongoose
-  .connect(process.env.MONGO_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(process.env.MONGO_URL)
   .then(() => {
     console.log("DB Connection successfull");
   })
