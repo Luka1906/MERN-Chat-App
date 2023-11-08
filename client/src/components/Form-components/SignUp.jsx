@@ -70,7 +70,7 @@ const SignUp = () => {
             onSubmit={handleSubmit(onSubmit)}
             className="flex flex-col gap-7 items-center"
           >
-            {serverError && <p className="text-error-color">{serverError}</p>}
+            {serverError && <p className="text-error-color  w-[250px] text-center">{serverError}</p>}
             <div className="relative w-[250px]  ">
               <input
                 className={`${userNameValue? "valid" : ""} input border-[1px] border-solid border-input-color bg-transparent outline-none w-full p-2 text-text-color peer input transition duration-300 rounded-md`}
