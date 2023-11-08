@@ -28,7 +28,7 @@ mongoose
   .then(() => {
     console.log("DB Connection successfull");
   })
-  .catch((err) => console.log(err));
+  .catch((err) => console.log(err)); 
 
 const port = process.env.PORT || 4000;
 const server = app.listen(port, () => console.log("Server is running"));
@@ -57,4 +57,6 @@ io.on("connection", (socket) => {
   });
 
 });
+
+
 

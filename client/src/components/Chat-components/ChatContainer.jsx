@@ -101,7 +101,7 @@ const ChatContainer = ({
                     message.fromSelf
                       ? " bg-message-color"
                       : " bg-primary-color-dark"
-                  } text-text-color max-w-[40%] break-words p-4 text-[1.1rem] rounded-2xl `}
+                  } text-text-color min-w-[15rem] max-w-[40%] break-words p-4 md:text-[1.1rem] rounded-2xl `}
                 >
                   <p>{message.message}</p>
                 </div>

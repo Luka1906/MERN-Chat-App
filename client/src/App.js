@@ -5,7 +5,6 @@ import Register from "./pages/Register";
 import Avatars from "./pages/Avatars";
 import Chat from "./pages/Chat";
 
-
 const router = createBrowserRouter([
   {
     path: "/",
