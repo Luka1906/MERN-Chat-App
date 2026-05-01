@@ -21,7 +21,7 @@ const SetAvatar = () => {
       const user = JSON.parse(localStorage.getItem("chat-user"));
 
       const response = await fetch(
-        `${process.env.REACT_APP_SERVER_URL}/api/auth/setAvatar/${user._id}`,
+        `${process.env.REACT_APP_SERVER_URL}api/auth/setAvatar/${user._id}`,
         {
           method: "POST",
           headers: {
